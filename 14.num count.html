@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .main{
+        margin: 0px 200px;
+       }
+       .main .four .nums{
+        display: flex;
+        height: 100px;
+        align-items: center;
+
+       }
+       .main .four .nums .num{
+
+        flex: 1;
+        font-size: 50px;
+        border: 2PX solid black;
+        text-align: center;
+        background-color: rgb(201, 176, 230);
+       }
+    </style>
+    
+</head>
+<body>
+    <img src="im1.jpeg" alt="">
+    <div class="main">
+         <div class="four">
+        <div class="nums">
+             <div class="num" data-goal="900">400</div>
+            <div class="num" data-goal="1500">600</div>
+            <div class="num" data-goal="2000">200</div>
+            <div class="num" data-goal="2000">450</div>
+        </div>
+        
+        
+    </div>
+    </div>
+   
+      <img src="im1.jpeg" alt="">
+    <script>
+        let nums = document.querySelectorAll(".nums .num");
+        let section = document.querySelector(".four");
+        let started = false;
+        window.onscroll =function (){
+            if(window.scrollY >= section.offsetTop) {
+                if (!started) {
+                    nums.forEach((num) => startCount(num));
+
+                }
+                started = true;
+            }
+        };
+        function startCount(el){
+            let goal = el.dataset.goal;
+            let count = setInterval(() => {
+                el.textContent++;
+                if(el.textContent == goal){
+                    clearInterval(count);
+                }
+            },10);
+        }
+    </script>
+</body>
+</html>  
+        

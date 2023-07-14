@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            border: 9px solid black;
+            background-color: aquamarine;
+            height: 600px;
+            width: 600px;
+            /* display: grid; */
+            margin: auto;
+            padding: 20px;
+
+           
+            
+           
+        }
+        h2{
+            padding-bottom: 20px;
+        }
+        .row{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            padding: 10px;
+        }
+        input[type="text"],[type="date"],select,[type="password"]{
+            height: 20px;
+            width: 300px;
+            padding: 0px 5px;
+        }
+        textarea{
+            width: 300px;
+            padding: 0px 5px;
+        }
+        .msg{
+            color: red;
+        }
+        .btn button{
+            height: 60px;
+            border-radius: 6px;
+            width: 150px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="regform">
+            <h2>Registation for job</h2>
+            <!-- ======first name==== -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">firstname</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="" id="fname" onblur="return blankCheck(this,'msg1')" onkeyup="return regExName(this, 'msg1')">
+                
+        
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg1"></span>
+                </div> 
+            </div>
+
+            <!-- midddle name -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Middle Name</label>
+                </div> 
+                <div class="col">
+                    <input type="text" name="" id="midname"  onblur="return blankCheck(this,'msg2')" onkeyup="return regExName(this, 'msg2')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg2"></span>
+                </div>
+            </div>
+
+            <!-- last name -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Last name</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="" id="lname" onblur="return blankCheck(this,'msg3')" onkeyup="return regExName(this, 'msg3')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg3"></span>
+                </div>
+            </div>
+
+            <!-- ===address-====== -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Address</label>
+                </div>
+                <div class="col">
+                    <textarea name="" id="addr" cols="37" rows="2" placeholder="address must be 30 to 200 character" maxlength="200" onblur="return blankCheck(this,'msg4')" onkeyup="return regExName(this, 'msg4')"></textarea>
+                </div>  
+                <div class="col">
+                    <span class="msg" id="msg4"></span>
+                </div>          
+            </div>
+
+            <!-- birthday -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Birthday</label>
+                </div>
+                <div class="col">
+                    <input type="date" name="" id="bdate" onblur="return blankCheck(this,'msg5')">
+                    
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg5"></span>
+                </div>
+            </div>
+
+            <!-- Gender -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Gender</label>
+                </div>
+                <div class="col">
+                    
+                    <input type="radio" name="gen" id="male" onblur="return blankCheck(this,'msg6')">
+                    <label for="">Male</label>
+                    <input type="radio" name="gen" id="female" onblur="return blankCheck(this,'msg6')">
+                    <label for="">Female</label>
+                    
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg6"></span>
+                </div>
+            </div>
+
+            <!-- Experiance -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Experiance</label>
+                </div>
+                <div class="col">
+                <select name="" id="selyear" onblur="return blankCheck(this,'msg7')">
+                    <option value="-1">---------------------select-----------------------</option>
+               <option value="">1 year</option>
+                <option value="">4 year</option>
+             </select>
+              
+                </div> 
+                <div class="col">
+                    <span class="msg" id="msg7"></span>
+                </div>
+            </div>
+
+            <!-- mobile num -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Mobile no</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="" id="mobile"onblur="return blankCheck(this,'msg8')" onkeyup="return mobileEx(this,'msg8')" maxlength="10">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg8"></span>
+                </div>
+            </div>
+
+            <!-- Email-id -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Email</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="" id="Email" onblur="return blankCheck(this,'msg9')" onkeyup="return EmailEx()">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg9"></span>
+                </div>
+            </div>
+
+            <!-- Password -->
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Password</label>
+                </div>
+                <div class="col">
+                    <input type="password" name="" id="pass" onblur="return blankCheck(this,'msg10')"  placeholder="8 to 15 character" onkeyup="return regExName(this, 'msg10')">
+                </div>
+                <div class="col">
+                    <span class="msg" id="msg10"></span>
+                </div>
+            </div>
+
+            <!-- button -->
+         <div class="btn">
+            <button onclick="return clickForm()">Register</button>
+         </div>
+        </div>
+    </div>
+    <script>
+
+//////click event/////
+function clickForm(){
+let fname=document.getElementById("fname").value;
+ let midname=document.getElementById("midname").value;
+ let lname=document.getElementById("lname").value;
+ let addr=document.getElementById("addr").value;
+ let birth=document.getElementById("bdate").value;
+ let male =document.getElementById("male").checked;
+let female =document.getElementById("female").checked;
+  let exp=document.getElementById("selyear").value;
+ let mno = document.getElementById("mobile").value;
+ let mail=document.getElementById("Email").value;
+ let pass = document.getElementById("pass").value;
+
+
+
+if(fname == "" || fname == null){
+        document.getElementById("msg1").innerText = "Enter First name";
+        return false;
+    }
+
+
+        else if(midname=="" || midname== null){
+     document.getElementById("msg2").innerText = "Enter middle name";
+         return false;
+    }
+    else if(lname== ""  || lname== null){
+     document.getElementById("msg3").innerText = "Enter last name";
+         return false;
+     }
+    else if(addr == "" || addr == null){
+         document.getElementById("msg4").innerText = "Enter Address";
+       return false;
+ }
+      else if (birth == "" || birth == null){
+         document.getElementById("msg5").innerText = "Select Date";
+        return false;
+     }
+      else if(male == false && female == false){
+        document.getElementById("msg6").innerText = "Select Gender";
+        return false;
+     }
+    else if(exp =="-1"){
+        document.getElementById("msg7").innerText="select experinces"
+        return false
+      }
+    else if (mno == "" || mno == null) {
+         document.getElementById("msg8").innerText = "Enter Mobile no";
+     return false;
+    }
+     
+     else if(mail == "" || mail == null){
+        document.getElementById("msg9").innerText = "Enter Email";
+         return false;
+     }
+        else if (pass == "" || pass == null) {
+         document.getElementById("msg10").innerText = "Enter Password";
+         return false;
+         }
+    
+     else{
+         document.getElementById("msg1").innerText = "";
+         document.getElementById(".msg2").innerText="";
+        document.getElementById(".msg3").innerText="";
+        document.getElementById(".msg4").innerText="";
+        document.getElementById("msg5").innerText="";
+         document.getElementById("msg6").innerText="";
+         document.getElementById("msg7").innerText="";
+        
+         document.getElementById("msg8").innerText="";
+        document.getElementById("msg9").innerText="";
+        document.getElementById("msg10").innerText="";
+        return false
+        
+
+        }
+    }
+    
+
+    
+    ///////on blur/////
+
+   function blankcheck(blank,spanid){
+    if(blnk.value== ""  || blnk.value == null){
+        document.getElementById(spanid).innerText="plese,faill this field"
+        return false
+    }else{
+        document.getElementById(spanid).innerText="";
+        return false;
+    }
+   }
+   function selectValchaeck(selvalue,spanid){
+    if(selvalue.value== "-1"){
+    document.getElementById(spanid).innerText = "Select Value";
+        return false;
+    }
+   }
+
+   function radiocheck(sekyear,spanid){
+    if(selvalue.checked== false  && selectVal.checked== false){
+        document.getElementById(spanid).innerText = "Select Value";
+        return false
+} 
+    }
+   
+
+    //keyboard event/////
+
+
+    // =================== keyboard event ===============
+// name validation
+function regExName(inputex, spanid){
+    let regEx = /^[a-zA-Z]*$/
+    if (!(regEx.test(inputex.value)) || (inputex.value.length < 2)){
+        document.getElementById(spanid).innerText = "Enter Valid name"
+        return false
+    }else{
+        document.getElementById(spanid).innerText = ""
+        return false
+    }
+}
+// address length
+function addressLength(){
+    let addr = document.getElementById("addr").value;
+    if(addr.length < 30){
+        document.getElementById("msg5").innerText = "Address must be more than 30 characters";
+        return false;
+    }else{
+        document.getElementById("msg5").innerText = "";
+        return false;
+    }
+}
+// mobile no
+function mobileEx(mobileex, spanid){
+    let regEx = /^[0-9]*$/;
+    let start = /^[6-9]/;
+    if (!(regEx.test(mobileex.value)) || (!(start.test(mobileex.value)))){
+        document.getElementById(spanid).innerText = "Invalid Number"
+        return false
+    }else{
+        document.getElementById(spanid).innerText = ""
+        return false
+    }
+}
+// email expression 
+function EmailEx(){
+    let mail = document.getElementById("email").value;
+    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/
+    if(!(regex.test(mail))){
+        document.getElementById("msg8").innerText = "Enter Proper Email id"
+        return false;
+    }else{
+        document.getElementById("msg8").innerText = ""
+        return false;
+    }
+}
+// password expression
+function passwordEx(){
+    let pass = document.getElementById("pass").value;
+    let passEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    if(passEx.test(pass)){
+        document.getElementById("msg9").innerText = "";
+        return false
+    }else{
+        document.getElementById("msg9").innerText = "enter password must be in uppercase, lowercase, number and special character";
+        return false
+    }
+}
+// compare password
+function comparePass(){
+    let pass = document.getElementById("pass").value;
+    let cpass = document.getElementById("cpass").value;
+    if(cpass != pass){
+        document.getElementById("msg10").innerText = "Password and Confirm password Does not match"
+        return false
+    }else{
+        document.getElementById("msg10").innerText = ""
+        return false
+    }
+}
+
+// show password
+function Showpass() {
+    let pass = document.getElementById("pass");
+    let cpass = document.getElementById("cpass");
+    if(pass.type == "password" || cpass.type == "password"){
+        pass.type = "text";
+        cpass.type = "text"
+    }else{
+        pass.type = "password";
+        cpass.type = "password"
+    }
+}
+    </script>
+</body>
+</html>

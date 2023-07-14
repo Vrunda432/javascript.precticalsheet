@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+    .main{
+        height: 400px;
+        width: 1000px;
+        background-color: blueviolet;
+        color: white;
+        font-size: 75px;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+</style>
+</head>
+<body>
+   
+        <div class="main">
+            <div class="num1" id="cout1"></div>
+            <div class="num2" id="cout2">2</div>
+            <div class="num3" id="cout3">3</div>
+            <div class="num4" id="cout4">4</div>
+        </div>
+        <script>
+            let countnum=setInterval(counting,120);
+
+            let start_num=500;
+            function counting(){
+                let div=document.getElementById("cout1");
+                div.innerHTML=++ start_num;
+
+                if(start_num == 1500)
+                {
+                    clearInterval(countnum)
+                }
+
+             
+            }
+        </script>
+    <script>
+        let countnum1=setInterval(counting,120);
+
+        let start_num1=760;
+        function counting(){
+            let div=document.getElementById("cout2");
+            div.innerHTML=++ start_num1;
+
+            if(start_num == 1500)
+            {
+                clearInterval(countnum1)
+            }
+
+         
+        }
+    </script>
+    <script>
+        let countnum3=setInterval(counting,120);
+
+        let start_num3=1399;
+        function counting(){
+            let div=document.getElementById("cout3");
+            div.innerHTML=++ start_num3;
+
+            if(start_num == 1600)
+            {
+                clearInterval(countnum3)
+            }
+
+         
+        }
+        
+    </script>
+    <script>
+        let countnum4=setInterval(counting,120);
+
+        let start_num4=4000;
+        function counting(){
+            let div=document.getElementById("cout4");
+            div.innerHTML=++ start_num4;
+
+            if(start_num == 5000)
+            {
+                clearInterval(countnum4)
+            }
+
+         
+        }
+        
+    </script>
+</body>
+</html>

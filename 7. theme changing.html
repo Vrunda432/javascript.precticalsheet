@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <style>
+        .theme_change{
+            background-color: #1e1e1e;
+            color: white;
+            font-size: 40px;
+        }
+       .theme{
+        font-size: 40px;
+       }
+       
+    </style>
+</head>
+<body>
+    <div class="theme">
+           <div class="moon">
+             <span class="bi bi-moon"></span>
+            </div>
+    </div>
+    <script>
+        let changebg=document.querySelector(".bi-moon");
+
+        changebg.addEventListener("click",function(){
+            document.body.classList.toggle("theme_change")
+
+            if(document.body.classList.contains("theme_chnage")== true){
+                changebg.classList.remove("bi-moon")
+                changebg.classList.add("bi-brightness-high")
+            }
+            else{
+                changebg.classList.remove("bi-brightness-high")
+                changebg.classList.add("bi-moon")
+            }
+        
+        })
+    </script>
+</body>
+</html>

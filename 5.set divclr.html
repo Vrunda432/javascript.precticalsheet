@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.main{
+    height: 400px;
+    width: 400px;
+    border: 2px solid black;
+}
+button{
+    height:40px ;
+    width:60px;
+}
+.div-flex{
+    display: flex;
+}
+.dv1{
+    height: 100px;
+    width: 130px;
+}
+.dv2{
+    height: 100px;
+    width: 130px;
+    gap: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        
+        <form action="">
+
+            <div class="flex-x">
+            <button onclick=" return setclrs()">Green</button>
+            <button onclick="return setcols()">Blue</button>
+            <hr>
+        </form>
+        <div class="div-flex">
+            <div class="dv1" id="green1"></div>
+            <div class="dv2" id="blue1"></div>
+
+        </div>
+    </div>
+        
+        
+   
+   
+</div>
+    <script>
+
+
+    function setclrs(){
+
+    let setcl=document.getElementById("green1")
+ 
+    if(setcl.style.backgroundColor!= "green"){
+        setcl.style.backgroundColor="green"
+        return false;
+    }
+    else{
+        setcl.style.backgroundColor="transparent";
+    }
+
+    }
+   
+    function setcols(){
+
+        let setcol=document.getElementById("blue1")
+        if(setcol.style.backgroundColor!= "blue"){
+        setcol.style.backgroundColor="blue"
+        return false;
+    }
+    else{
+        setcol.style.backgroundColor="transparent";
+    }
+
+    }
+   
+    
+    </script>
+</body>
+</html>

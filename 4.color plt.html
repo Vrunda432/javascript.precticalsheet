@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .colorpl{
+        border: 3px solid black;
+        height: 300px;
+        width: 400px;
+      }
+      .setcl{
+        height: 100px;
+        width: 100px;
+      }
+   
+    </style>
+   
+</head>
+<body>
+    <div class="colorpl">
+        <form action="">
+            set color:
+        <label setcolor=""></label>
+        <input type="color" name="" id="dv1">
+        <button onclick=" return setcolor()">Set color</button>
+    </form>
+   
+<hr>
+   <div class="setcl" id="dv2">
+  <h2>Hello</h2>
+    </div>
+    </div>
+  <script>
+     
+
+     function setcolor(){
+
+        let setcol=document.getElementById("dv1").value;
+
+        let setcl=document.getElementById("dv2");
+
+        setcl.style.backgroundColor=setcol;
+        return false;
+
+     }
+  </script>
+</body>
+</html>
